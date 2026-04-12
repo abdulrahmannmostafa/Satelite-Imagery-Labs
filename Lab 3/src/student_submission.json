@@ -1,0 +1,410 @@
+{
+    "student_ids": [
+        "9220475",
+        "9220681"
+    ],
+    "trials": [
+        {
+            "hyperparams": {
+                "learning_rate": 0.001,
+                "batch_size": 32,
+                "optimizer": "Adam",
+                "epochs": 10,
+                "activation": "tanh"
+            },
+            "accuracy": 0.6425,
+            "F_score_class": {
+                "GREENERY": 0.1029,
+                "SAND": 0.2012,
+                "WATER": 0.5037,
+                "CEMENT_INFRASTRUCTURE": 0.7759
+            },
+            "observations": [
+                "Initial training phase completed",
+                "Validation loss fluctuated",
+                "The model achieved moderate accuracy (~59%) but extremely low macro F1 (~0.18)",
+                "Macro F1 score (~0.39) is significantly lower than accuracy (~0.64), indicating class imbalance",
+                "CEMENT_INFRASTRUCTURE achieves the highest performance",
+                "GREENERY and SAND classes show very low F1 scores",
+                "Confusion matrix shows frequent misclassification of GREENERY and SAND as CEMENT"
+            ],
+            "conclusions": [
+                "A lower learning rate may be required",
+                "Further regularization is recommended",
+                "The model suffers from class imbalance, leading to mode collapse",
+                "Visual similarity between GREENERY, SAND, and CEMENT contributes to misclassification",
+                "The high accuracy is misleading, as it reflects dominance of a single class",
+                "The macro-class mapping introduces imbalance due to many micro-classes grouped under CEMENT_INFRASTRUCTURE"
+            ]
+        },
+        {
+            "hyperparams": {
+                "learning_rate": 0.0001,
+                "batch_size": 64,
+                "optimizer": "Adam",
+                "epochs": 10,
+                "activation": "tanh"
+            },
+            "accuracy": 0.6574,
+            "F_score_class": {
+                "GREENERY": 0.5971,
+                "SAND": 0.5393,
+                "WATER": 0.7611,
+                "CEMENT_INFRASTRUCTURE": 0.4587
+            },
+            "observations": [
+                "This configuration achieved the highest macro F1 score (~0.59)",
+                "Performance across classes became more balanced compared to the baseline",
+                "Significant improvement in GREENERY and SAND classification",
+                "WATER class remains the best performing",
+                "CEMENT_INFRASTRUCTURE performance slightly decreased, indicating reduced bias"
+            ],
+            "conclusions": [
+                "Lower learning rate improves stability and generalization",
+                "Larger batch size helps stabilize gradient updates",
+                "Adam optimizer performs well with low learning rates",
+                "Reducing bias toward dominant class improves macro F1"
+            ]
+        },
+        {
+            "hyperparams": {
+                "learning_rate": 0.001,
+                "batch_size": 32,
+                "optimizer": "adam",
+                "epochs": 10,
+                "activation": "tanh"
+            },
+            "accuracy": 0.3623,
+            "F_score_class": {
+                "GREENERY": 0.5694,
+                "SAND": 0.4236,
+                "WATER": 0.309,
+                "CEMENT_INFRASTRUCTURE": 0.3417
+            },
+            "observations": [
+                "Significant drop in accuracy and macro F1 compared to shorter training",
+                "WATER class performance decreased noticeably",
+                "Training becomes unstable with more epochs"
+            ],
+            "conclusions": [
+                "High learning rate with more epochs leads to instability",
+                "Overfitting or divergence is likely occurring"
+            ]
+        },
+        {
+            "hyperparams": {
+                "learning_rate": 0.001,
+                "batch_size": 32,
+                "optimizer": "sgd",
+                "epochs": 5,
+                "activation": "tanh"
+            },
+            "accuracy": 0.6098,
+            "F_score_class": {
+                "GREENERY": 0.5311,
+                "SAND": 0.4946,
+                "WATER": 0.7165,
+                "CEMENT_INFRASTRUCTURE": 0.4675
+            },
+            "observations": [
+                "Improved macro F1 compared to Adam with same settings",
+                "WATER class achieves strong performance",
+                "Better balance across classes"
+            ],
+            "conclusions": [
+                "SGD provides better generalization than Adam at this learning rate",
+                "Stable and effective configuration"
+            ]
+        },
+        {
+            "hyperparams": {
+                "learning_rate": 0.001,
+                "batch_size": 32,
+                "optimizer": "sgd",
+                "epochs": 10,
+                "activation": "tanh"
+            },
+            "accuracy": 0.6237,
+            "F_score_class": {
+                "GREENERY": 0.5478,
+                "SAND": 0.5064,
+                "WATER": 0.7269,
+                "CEMENT_INFRASTRUCTURE": 0.4942
+            },
+            "observations": [
+                "Slight improvement over 5 epochs configuration",
+                "Consistent performance improvement across all classes",
+                "No significant overfitting observed"
+            ],
+            "conclusions": [
+                "Increasing epochs benefits SGD training",
+                "Good balance between learning and stability"
+            ]
+        },
+        {
+            "hyperparams": {
+                "learning_rate": 0.001,
+                "batch_size": 64,
+                "optimizer": "adam",
+                "epochs": 5,
+                "activation": "tanh"
+            },
+            "accuracy": 0.6644,
+            "F_score_class": {
+                "GREENERY": 0.5514,
+                "SAND": 0.4451,
+                "WATER": 0.7895,
+                "CEMENT_INFRASTRUCTURE": 0.2817
+            },
+            "observations": [
+                "Higher accuracy achieved with larger batch size",
+                "WATER class performs very well while CEMENT_INFRASTRUCTURE is weak",
+                "Class imbalance still affects predictions"
+            ],
+            "conclusions": [
+                "Larger batch size improves stability",
+                "Model still struggles with minority class discrimination"
+            ]
+        },
+        {
+            "hyperparams": {
+                "learning_rate": 0.001,
+                "batch_size": 64,
+                "optimizer": "sgd",
+                "epochs": 10,
+                "activation": "tanh"
+            },
+            "accuracy": 0.6326,
+            "F_score_class": {
+                "GREENERY": 0.5531,
+                "SAND": 0.5174,
+                "WATER": 0.733,
+                "CEMENT_INFRASTRUCTURE": 0.5031
+            },
+            "observations": [
+                "Strong performance with balanced F1 scores",
+                "All classes show consistent improvement",
+                "Stable training behavior"
+            ],
+            "conclusions": [
+                "Combining larger batch size with more epochs enhances performance",
+                "This is one of the strongest SGD configurations"
+            ]
+        },
+        {
+            "hyperparams": {
+                "learning_rate": 0.0001,
+                "batch_size": 32,
+                "optimizer": "adam",
+                "epochs": 10,
+                "activation": "tanh"
+            },
+            "accuracy": 0.6621,
+            "F_score_class": {
+                "GREENERY": 0.6048,
+                "SAND": 0.5127,
+                "WATER": 0.7712,
+                "CEMENT_INFRASTRUCTURE": 0.4293
+            },
+            "observations": [
+                "High macro F1 with balanced class performance",
+                "Strong improvement in GREENERY and WATER classes",
+                "Stable convergence with low learning rate"
+            ],
+            "conclusions": [
+                "Lower learning rate improves generalization",
+                "Good balance between stability and performance"
+            ]
+        },
+        {
+            "hyperparams": {
+                "learning_rate": 0.0001,
+                "batch_size": 64,
+                "optimizer": "Adam",
+                "epochs": 10,
+                "activation": "ReLU"
+            },
+            "accuracy": 0.7445,
+            "F_score_class": {
+                "GREENERY": 0.6537,
+                "SAND": 0.615,
+                "WATER": 0.8423,
+                "CEMENT_INFRASTRUCTURE": 0.584
+            },
+            "observations": [
+                "Replacing tanh with ReLU significantly improved model performance",
+                "This configuration achieved the highest overall accuracy (~0.74) and macro F1 (~0.67)",
+                "Performance across all classes became more balanced",
+                "GREENERY and SAND classes improved substantially compared to previous trials",
+                "WATER remains the best performing class",
+                "CEMENT_INFRASTRUCTURE performance is more balanced, indicating reduced bias"
+            ],
+            "conclusions": [
+                "Activation function plays a critical role in model performance",
+                "ReLU improves gradient flow and avoids vanishing gradient issues present in tanh",
+                "Better feature extraction leads to improved minority class performance",
+                "This configuration represents the best trade-off between accuracy and class balance"
+            ]
+        },
+        {
+            "hyperparams": {
+                "learning_rate": 0.001,
+                "batch_size": 32,
+                "optimizer": "adam",
+                "epochs": 5,
+                "activation": "ReLU"
+            },
+            "accuracy": 0.8117,
+            "F_score_class": {
+                "GREENERY": 0.695,
+                "SAND": 0.7053,
+                "WATER": 0.7028,
+                "CEMENT_INFRASTRUCTURE": 0.8947
+            },
+            "observations": [
+                "High accuracy and strong macro F1 achieved",
+                "Balanced performance across all classes",
+                "CEMENT_INFRASTRUCTURE achieves highest F1 score",
+                "Model generalizes well with moderate batch size"
+            ],
+            "conclusions": [
+                "Adam with lr=0.001 performs well with ReLU activation",
+                "Model benefits from improved gradient flow",
+                "Balanced classification indicates reduced class bias"
+            ]
+        },
+        {
+            "hyperparams": {
+                "learning_rate": 0.001,
+                "batch_size": 32,
+                "optimizer": "adam",
+                "epochs": 10,
+                "activation": "ReLU"
+            },
+            "accuracy": 0.81,
+            "F_score_class": {
+                "GREENERY": 0.6768,
+                "SAND": 0.7186,
+                "WATER": 0.7444,
+                "CEMENT_INFRASTRUCTURE": 0.8839
+            },
+            "observations": [
+                "Performance remains high with slight macro F1 improvement",
+                "WATER class improves further",
+                "Minor fluctuations across classes"
+            ],
+            "conclusions": [
+                "Increasing epochs does not significantly improve performance",
+                "Model already converges within fewer epochs"
+            ]
+        },
+        {
+            "hyperparams": {
+                "learning_rate": 0.001,
+                "batch_size": 64,
+                "optimizer": "Adam",
+                "epochs": 5,
+                "activation": "ReLU"
+            },
+            "accuracy": 0.8288,
+            "F_score_class": {
+                "GREENERY": 0.7104,
+                "SAND": 0.7453,
+                "WATER": 0.7378,
+                "CEMENT_INFRASTRUCTURE": 0.9003
+            },
+            "observations": [
+                "This configuration achieved the highest accuracy (~0.83) and macro F1 (~0.77)",
+                "Performance is well balanced across all classes",
+                "Significant improvement compared to both baseline and previous tuned models",
+                "All macro-classes achieved strong F1 scores (>0.70)",
+                "CEMENT_INFRASTRUCTURE remains the strongest class but without dominating predictions",
+                "Training with fewer epochs (5) prevented overfitting and improved generalization"
+            ],
+            "conclusions": [
+                "A slightly higher learning rate (0.001) works well when combined with ReLU activation",
+                "Larger batch size (64) stabilizes training and improves performance",
+                "Fewer epochs can improve generalization by avoiding overfitting",
+                "ReLU activation significantly enhances learning capabilities",
+                "This configuration represents the optimal balance between bias and variance",
+                "The architecture is changed to have 16 filters in the first convolutional layer and 32 filters in the second convolutional layer, and a third new convolutional layer with 64 filters and kernel size of 3 is added after the second convolutional layer, followed by a max pooling layer with kernel size of 2 and stride of 2. The fully connected layers are adjusted accordingly to accommodate the new architecture."
+            ]
+        },
+        {
+            "hyperparams": {
+                "learning_rate": 0.001,
+                "batch_size": 64,
+                "optimizer": "adam",
+                "epochs": 10,
+                "activation": "ReLU"
+            },
+            "accuracy": 0.8343,
+            "F_score_class": {
+                "GREENERY": 0.7185,
+                "SAND": 0.7458,
+                "WATER": 0.7218,
+                "CEMENT_INFRASTRUCTURE": 0.9038
+            },
+            "observations": [
+                "Slight increase in accuracy compared to 5 epochs",
+                "Very strong performance for CEMENT_INFRASTRUCTURE",
+                "Stable and consistent results across all classes"
+            ],
+            "conclusions": [
+                "Increasing epochs slightly improves accuracy but not macro F1 significantly",
+                "Model already performs near optimal with fewer epochs"
+            ]
+        },
+        {
+            "hyperparams": {
+                "learning_rate": 0.0001,
+                "batch_size": 32,
+                "optimizer": "adam",
+                "epochs": 10,
+                "activation": "ReLU"
+            },
+            "accuracy": 0.7892,
+            "F_score_class": {
+                "GREENERY": 0.6509,
+                "SAND": 0.7283,
+                "WATER": 0.6566,
+                "CEMENT_INFRASTRUCTURE": 0.8732
+            },
+            "observations": [
+                "Stable performance with slightly lower accuracy",
+                "Balanced F1 scores across classes",
+                "Slower convergence compared to higher learning rate"
+            ],
+            "conclusions": [
+                "Lower learning rate improves stability but reduces learning speed",
+                "Not as effective as lr=0.001 for this architecture"
+            ]
+        },
+        {
+            "hyperparams": {
+                "learning_rate": 0.0001,
+                "batch_size": 32,
+                "optimizer": "sgd",
+                "epochs": 5,
+                "activation": "ReLU"
+            },
+            "accuracy": 0.2078,
+            "F_score_class": {
+                "GREENERY": 0.0,
+                "SAND": 0.0,
+                "WATER": 0.2001,
+                "CEMENT_INFRASTRUCTURE": 0.2911
+            },
+            "observations": [
+                "Extremely poor performance across most classes",
+                "GREENERY and SAND completely misclassified",
+                "Model fails to learn meaningful patterns"
+            ],
+            "conclusions": [
+                "Learning rate too low for SGD",
+                "Model suffers from severe underfitting"
+            ]
+        }
+    ],
+    "micro_class_error_analysis": " \n- The worst-performing macro-class was identified based on the lowest F1-score. In earlier trials, GREENERY and SAND exhibited significantly lower F1-scores compared to WATER and CEMENT_INFRASTRUCTURE, indicating that the model struggled to correctly classify samples belonging to these categories.\n\n- Upon further analysis using a cross-tabulation between original micro-classes and predicted macro-classes, several consistent misclassification patterns were observed. Within the GREENERY macro-class, micro-classes such as chaparral, meadow, rectangular_farmland, and circular_farmland were frequently misclassified as CEMENT_INFRASTRUCTURE. Similarly, in the SAND macro-class, micro-classes like desert, beach, and mountain were often predicted as either CEMENT_INFRASTRUCTURE or WATER.\n\n- These misclassifications can be related to visual similarity and feature overlap between classes. For example, agricultural fields and sparse vegetation may exhibit textures and geometric patterns similar to urban areas, leading the model to confuse them with infrastructure-related classes. Likewise, sandy regions such as deserts and beaches can visually resemble water bodies or bright urban surfaces due to similar color distributions and low texture variation.\n\n- Additionally, the macro-class mapping had endured from class imbalance, as CEMENT_INFRASTRUCTURE contains a larger number of micro-classes compared to other categories. This caused the model to develop a bias toward predicting this dominant class, especially in earlier trials where class weighting was not applied.\n\n- After applying improvements such as ReLU activation, class-weighted loss, and hyperparameter tuning, the model demonstrated significantly better class separation. However, minor confusion between visually similar land cover types still persists, suggesting that further improvements could be achieved through deeper architectures or data augmentation techniques.\n"
+}
