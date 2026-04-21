@@ -1,0 +1,25 @@
+{
+  "student_ids": [
+    "9220475",
+    "9220681"
+  ],
+  "epochs_run_per_model": 7,
+  "metrics": [
+    {
+      "modality": "Satellite Only",
+      "test_iou": 0.6063,
+      "test_dice": 0.7539
+    },
+    {
+      "modality": "Map Only",
+      "test_iou": 0.9286,
+      "test_dice": 0.963
+    },
+    {
+      "modality": "Combined",
+      "test_iou": 0.9244,
+      "test_dice": 0.9607
+    }
+  ],
+  "analytical_conclusion": "Map-only input achieves the highest IoU and Dice scores because map tiles are clean, stylized representations where roads have a consistent, easily detectable color signature. Satellite imagery is significantly harder — roads are occluded by shadows, vegetation, and varying lighting conditions, leading to lower segmentation performance. The combined model (satellite + map concatenated) has access to the most information theoretically, but in practice does not surpass map-only within 7 epochs, as the model requires additional training to learn the optimal weighting between the two modalities. Given sufficient epochs, the combined model is expected to achieve the best overall performance."
+}
